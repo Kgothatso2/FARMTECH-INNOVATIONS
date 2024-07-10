@@ -1,30 +1,16 @@
 const express = require('express');
+const colors = require('colors');
 
-const app = express()
-const port = 3000
+// Get port fromm environment variable
+const port = process.env.PORT || 3000;
 
-app.use(express.json())
+// Create an instance of express application
+const app = express();
 
-// root endpoint
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+// MIddlewares
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-// register a user
-app.post('/register', (req, res) => {});
-
-// login a user
-app.post('/login', (req, res) => {});
-
-// dashboard for a user
-app.get('/dashboard', (req, res) => {});
-
-// weather information
-
-
-
-
-// listen to port 3000
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`)
-});
+  console.log(`Server running on port ${port}`['red']);
+})
