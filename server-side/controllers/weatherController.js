@@ -4,12 +4,14 @@ const axios = require('axios');
 const apiKey = process.env.WEATHER_API_KEY;
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
+// helper function for fetching weather data
 const getWeather = async (location) => {
   try {
     const response = await axios.get(`${baseUrl}?q=${location}&appid=${apiKey}&units=metric`);
     return response.data;
   } catch (err) {
     console.error('Error fetching weather data:', err);
+    throw err;
   }
 };
 
@@ -29,4 +31,4 @@ const fetchWeather = async (req, res) => {
     }
 };
 
-module.exports = { fetchWeather };
+module.exports = { fetchWeather, getWeather };

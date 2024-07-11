@@ -5,8 +5,8 @@ const FieldSchema = new mongoose.Schema({
   fieldName: { type: String, required: true },
   fieldSize: { type: Number },
   fieldLocation: { type: String, required: true },
-  fieldLog: { type: String, required: true },
-//   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  fieldLog: [{ type: String, required: true }], // a list of logs with {_id, title, date, description}
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
 // export class
