@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const weatherRoutes = require('./routes/weatherRoutes');
+const fieldRoutes = require('./routes/fieldRoutes');
 const colors = require('colors');
 
 // dotenv to auto load environment variables
@@ -19,8 +20,11 @@ const app = express();
 // MIddlewares
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+// Routes
 app.use('/api/v1/users', userRoutes);
-app.use('/api', weatherRoutes);
+app.use('/api/v1', weatherRoutes);
+app.use('/api/v1', fieldRoutes)
 
 app.get('/', (req, res) => {
   res.send('HomePage');
