@@ -1,7 +1,11 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
+const weatherRoutes = require('./routes/weatherRoutes');
 const colors = require('colors');
+
+// dotenv to auto load environment variables
+require('dotenv').config();
 
 // Get port fromm environment variable
 const port = process.env.PORT || 3000;
@@ -16,11 +20,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/api/v1/users', userRoutes);
+app.use('/api', weatherRoutes);
 
 app.get('/', (req, res) => {
   res.send('HomePage');
 })
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`['red']);
+  console.log(`Server running on port ${port}`['green']);
 })
