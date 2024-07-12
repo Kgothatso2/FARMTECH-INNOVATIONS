@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# jlp's data files
+ltcp.js
+data.json
+location_crops.js
