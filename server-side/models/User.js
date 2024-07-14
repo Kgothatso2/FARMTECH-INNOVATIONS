@@ -1,16 +1,38 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const { isEmail } = require("validator");
+const bcrypt = require("bcrypt");
 
-// user schema class
-const UserSchema = new mongoose.Schema({
-  lastname: { type: String },
-  firstname: { type: String },
-  username: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  fields: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Field' }],
-  createdAt: { type: Date, default: Date.now }
+// Users schema
+const userSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      required: [true, "Please enter a username"],
+    },
+    email: {
+      type: String,
+      required: [true, "Please enter an email"],
+      lowerCase: true,
+      unique: true,
+      validate: [isEmail, "Please enter a valid email"],
+    },
+    password: {
+      type: String,
+      required: [true, "Please enter a password"],
+      minlength: [6, "Minimum password length is 6"],
+    },
+  },
+  { timestamps: true }
+);
+
+// fire a function before doc saved to db
+userSchema.pre("save", async function (next) {
+  const salt = await bcrypt.genSalt();
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
 });
 
-// export class
-const User = mongoose.model('User', UserSchema);
+// User Model
+const User = mongoose.model("user", userSchema);
+
 module.exports = User;
