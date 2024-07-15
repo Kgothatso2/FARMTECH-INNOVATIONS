@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const { handleErrors } = require("../middlewares/errorHandler");
+const createToken = require("../utils/generateToken");
 
 /**
  * description - Authenticat a user
@@ -18,11 +19,18 @@ const authenticateUser = (req, res) => {
  */
 
 const registerUser = async (req, res) => {
-    const { username, email, password } = req.body;
+  const { username, email, password } = req.body;
 
   try {
     const user = await User.create({ username, email, password });
-    res.status(201).json(user);
+
+    const token = createToken(user._id);
+    // Setting cookie
+    res.cookie("jwt", token, {
+      maxAge: 1000 * 60 * 60 * 24 * 3,
+      httpOnly: true,
+    });
+    res.status(201).json({ user: user._id });
   } catch (error) {
     const errors = handleErrors(error);
     res.status(400).json({ errors });

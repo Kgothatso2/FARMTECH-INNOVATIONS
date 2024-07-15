@@ -5,6 +5,7 @@ const weatherRoutes = require('./routes/weatherRoutes');
 const fieldRoutes = require('./routes/fieldRoutes');
 const dashboardRoutes = require('./routes/dashRoutes');
 const colors = require('colors');
+const cookieParser = require('cookie-parser');
 
 // dotenv to auto load environment variables
 require('dotenv').config();
@@ -21,6 +22,7 @@ const app = express();
 // MIddlewares
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
 
 // Routes
 app.use('/api/v1/users', userRoutes);
