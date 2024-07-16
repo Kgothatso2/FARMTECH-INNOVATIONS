@@ -12,6 +12,11 @@ const authenticateUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.login(email, password);
+    const token = createToken(user._id);
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 3,
+    });
     res.status(200).json({ user: user._id });
   } catch (error) {
     const errors = handleErrors(error);
@@ -52,7 +57,8 @@ const registerUser = async (req, res) => {
  */
 
 const logoutUser = (req, res) => {
-  res.status(200).json({ msg: "Logout User" });
+  res.cookie("jwt", "", { maxAge: 1 });
+  res.redirect("/");
 };
 
 module.exports = {

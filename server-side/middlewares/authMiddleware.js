@@ -1,16 +1,17 @@
 const jwt = require('jsonwebtoken');
+const User = require("../models/User");
 
-const requireAuth = (req, res, next) => {
+const auth = (req, res, next) => {
     const token = req.cookies.jwt
 
     // Check if jsonwebtoken exists && is verified
     if (token) {
-        jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
+        jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
             if (err) {
-                console.log(err.message)
                 res.redirect('/');
             } else {
-                console.log(decodedToken);
+                let user = await User.findById( decodedToken.id);
+                req.user = user;
                 next();
             }
         })
@@ -19,4 +20,4 @@ const requireAuth = (req, res, next) => {
     }
 }
 
-module.exports = { requireAuth };
+module.exports = auth;

@@ -6,6 +6,7 @@ const fieldRoutes = require('./routes/fieldRoutes');
 const dashboardRoutes = require('./routes/dashRoutes');
 const colors = require('colors');
 const cookieParser = require('cookie-parser');
+const auth = require('./middlewares/authMiddleware');
 
 // dotenv to auto load environment variables
 require('dotenv').config();
@@ -32,6 +33,10 @@ app.use('/api/v1', dashboardRoutes);
 
 app.get('/', (req, res) => {
   res.send('HomePage');
+})
+
+app.get('/a', auth, (req, res) => {
+  res.send('Welcome');
 })
 
 app.listen(port, () => {
