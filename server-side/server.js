@@ -4,6 +4,7 @@ const userRoutes = require('./routes/userRoutes');
 const weatherRoutes = require('./routes/weatherRoutes');
 const fieldRoutes = require('./routes/fieldRoutes');
 const dashboardRoutes = require('./routes/dashRoutes');
+const marketRoutes = require('./routes/marketRoutes');
 const colors = require('colors');
 const cookieParser = require('cookie-parser');
 const auth = require('./middlewares/authMiddleware');
@@ -27,16 +28,13 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api/v1/users', userRoutes);
-app.use('/api/v1', weatherRoutes);
-app.use('/api/v1', fieldRoutes);
+app.use('/api/v1/weather', weatherRoutes);
+app.use('/api/v1/fields', fieldRoutes);
 app.use('/api/v1', dashboardRoutes);
+app.use('/api/v1', marketRoutes);
 
 app.get('/', (req, res) => {
   res.send('HomePage');
-})
-
-app.get('/a', auth, (req, res) => {
-  res.send('Welcome');
 })
 
 app.listen(port, () => {

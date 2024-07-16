@@ -7,7 +7,7 @@ const { getWeather } = require('./weatherController');
  * access - private(user)
  */
 const getDashboardData = async (req, res) => {
-    const { userId } = req.query;
+    const userId = req.user.id;
 
     try {
         // fetch fields data
