@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middleware/auth');
+const auth = require('../middlewares/authMiddleware');
 const { addField, updateField, listFields, getField } = require('../controllers/fieldController');
 const { addFieldLog, deleteFieldLog, updateFieldLog, listFieldLogs } = require('../controllers/fieldLogController');
 // const auth = require();

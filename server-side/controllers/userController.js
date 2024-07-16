@@ -17,7 +17,7 @@ const authenticateUser = async (req, res) => {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 3,
     });
-    res.status(200).json({ user: user._id });
+    res.status(200).json({ user: user._id, token: token });
   } catch (error) {
     const errors = handleErrors(error);
     res.status(400).json({ errors });
@@ -66,4 +66,3 @@ module.exports = {
   registerUser,
   logoutUser,
 };
-
