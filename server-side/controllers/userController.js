@@ -8,8 +8,14 @@ const createToken = require("../utils/generateToken");
  * access - public
  */
 
-const authenticateUser = (req, res) => {
-  res.status(200).json({ msg: "Authenticate User" });
+const authenticateUser = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.login(email, password);
+    res.status(200).json({ user: user._id});
+  } catch (error) {
+    res.status(400).json({});
+  }
 };
 
 /**
@@ -25,6 +31,7 @@ const registerUser = async (req, res) => {
     const user = await User.create({ username, email, password });
 
     const token = createToken(user._id);
+
     // Setting cookie
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
