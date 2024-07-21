@@ -1,0 +1,108 @@
+{
+    "msg": "User created successfully",
+    "newUser": {
+        "lastname": "Lane",
+        "firstname": "Louis",
+        "username": "louis_lane",
+        "email": "louis_lane@email.com",
+        "password": "$2a$10$gGEm6OBNtJoqJC3.pELCKOiWL7JlUS9CO8Nd50lh7tacYgpVusRxK",
+        "fields": [],
+        "_id": "6690f3c82523abe597b4022b",
+        "createdAt": "2024-07-12T09:13:44.225Z",
+        "__v": 0
+    }
+}
+{
+    "msg": "Field added successfully",
+    "field": {
+        "fieldName": "Rice Field",
+        "fieldSize": 50,
+        "fieldLocation": "London",
+        "fieldLog": [],
+        "userId": "6690f3c82523abe597b4022b",
+        "_id": "6690f54a2523abe597b4022f",
+        "__v": 0
+    }
+}
+{
+    "message": "Field log added successfully",
+    "field": {
+        "_id": "6690f54a2523abe597b4022f",
+        "fieldName": "Rice Field",
+        "fieldSize": 50,
+        "fieldLocation": "London",
+        "fieldLog": [
+            {
+                "title": "Rice Planting",
+                "description": "Rice was planted today.",
+                "_id": "6690f741395c634da68b1e17",
+                "createdAt": "2024-07-12T09:28:33.401Z"
+            },
+            {
+                "title": "Irrigation Plan",
+                "description": "We're building a pump to supply water",
+                "_id": "6690f7a5395c634da68b1e1b",
+                "createdAt": "2024-07-12T09:30:13.173Z"
+            },
+            {
+                "title": "Dummy stuff",
+                "description": "delete later",
+                "_id": "6690f7cf395c634da68b1e20",
+                "createdAt": "2024-07-12T09:30:55.014Z"
+            }
+        ],
+        "userId": "6690f3c82523abe597b4022b",
+        "__v": 3
+    }
+}
+{
+    "message": "Field log updated successfully",
+    "field": {
+        "_id": "6690f54a2523abe597b4022f",
+        "fieldName": "Rice Field",
+        "fieldSize": 50,
+        "fieldLocation": "London",
+        "fieldLog": [
+            {
+                "title": "Rice Planting",
+                "description": "Rice was planted today.",
+                "_id": "6690f741395c634da68b1e17",
+                "createdAt": "2024-07-12T09:28:33.401Z"
+            },
+            {
+                "title": "Irrigation Plan",
+                "description": "We're building a pump to supply water",
+                "_id": "6690f7a5395c634da68b1e1b",
+                "createdAt": "2024-07-12T09:30:13.173Z"
+            },
+            {
+                "title": "Updated, wow!",
+                "description": "still delete later",
+                "_id": "6690f7cf395c634da68b1e20",
+                "createdAt": "2024-07-12T09:30:55.014Z"
+            }
+        ],
+        "userId": "6690f3c82523abe597b4022b",
+        "__v": 3
+    }
+}
+[
+    {
+        "title": "Rice Planting",
+        "description": "Rice was planted today.",
+        "_id": "6690f741395c634da68b1e17",
+        "createdAt": "2024-07-12T09:28:33.401Z"
+    },
+    {
+        "title": "Irrigation Plan",
+        "description": "We're building a pump to supply water",
+        "_id": "6690f7a5395c634da68b1e1b",
+        "createdAt": "2024-07-12T09:30:13.173Z"
+    },
+    {
+        "title": "Updated, wow!",
+        "description": "still delete later",
+        "_id": "6690f7cf395c634da68b1e20",
+        "createdAt": "2024-07-12T09:30:55.014Z"
+    }
+]
