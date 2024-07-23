@@ -3,24 +3,26 @@
     --primary: #8c9fd8;
     --secondary: #F6F6F6;
     --light: #FFFFFF;
-    --dark: #152440;
+    --dark: #ffffff;
 }
 
 .navbar{
     padding: 20px;
     background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(13, 17, 71) 97%);
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 97%);
 }
 
 .m-0{
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .nav-item{
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     padding: 10px;
     display: block;
     margin: 10px;
+    text-decoration: solid;
+    font-size: large;
 }
 
 .nav-item:hover{

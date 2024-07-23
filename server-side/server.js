@@ -15,7 +15,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Get port fromm environment variable
-const port = process.env.PORT || 3010;
+const port = process.env.PORT || 3000;
 
 // Connecting to Database
 connectDB();

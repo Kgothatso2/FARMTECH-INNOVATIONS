@@ -4,7 +4,7 @@ import '../styles/Header.css';
 function Header() {
     return (
         <header class="top">
-            <h1>FARMTECH</h1>
+            <h1>FARMTECH INNOVATIONS</h1>
         </header>
     );
 }
