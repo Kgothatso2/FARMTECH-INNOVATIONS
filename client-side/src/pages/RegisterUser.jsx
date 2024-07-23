@@ -27,7 +27,7 @@ function Register () {
     const newErrors = {};
 
     if (!formData.name) {
-      newErrors.name = 'Full Name is required';
+      newErrors.name = 'UserName is required';
     }
     if (!formData.email) {
       newErrors.email = 'Email is required';
@@ -71,7 +71,6 @@ function Register () {
       const data = await response.json();
 
       if (response.ok) {
-        // alert('Registration successful');
         navigate('/login');
       } else {
         setErrors({ apiError: data.message });
@@ -85,62 +84,58 @@ function Register () {
   return (
     <div className='bdy'>
       <Header />
-      <section class='form-section-r'>
+      <section className='form-section-r'>
         <div className='form-imgr' />
         <div className='reg-form'>
           <h1>Register</h1>
           <p>Create Your Account!</p>
           <form onSubmit={handleSubmit}>
-            <div>
+            <div className='form-group'>
+              <label htmlFor='name'>UserName</label>
               <input
                 type='text'
                 id='name'
                 name='name'
-                required
-                placeholder='Create your username (ex. john_doe)'
                 value={formData.name}
                 onChange={handleChange}
               />
               {errors.name && <div className='error'>{errors.name}</div>}
             </div>
-            <div>
+            <div className='form-group'>
+              <label htmlFor='email'>Email</label>
               <input
                 type='email'
                 id='email'
                 name='email'
-                required
-                placeholder='Your Email (ex. yourname@example.com)'
                 value={formData.email}
                 onChange={handleChange}
               />
               {errors.email && <div className='error'>{errors.email}</div>}
             </div>
-            <div>
+            <div className='form-group'>
+              <label htmlFor='password'>Password</label>
               <input
                 type='password'
                 id='password'
                 name='password'
-                required
-                placeholder='Password'
                 value={formData.password}
                 onChange={handleChange}
               />
               {errors.password && <div className='error'>{errors.password}</div>}
             </div>
-            <div>
+            <div className='form-group'>
+              <label htmlFor='confirm-password'>Confirm Password</label>
               <input
                 type='password'
                 id='confirm-password'
                 name='confirmPassword'
-                required
-                placeholder='Confirm Password'
                 value={formData.confirmPassword}
                 onChange={handleChange}
               />
               {errors.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
             </div>
             {errors.apiError && <div className='error'>{errors.apiError}</div>}
-            <button>Sign Up</button>
+            <button type='submit'>Sign Up</button>
             <p>Already a User? Login <Link to='/login'>Here</Link></p>
           </form>
         </div>
