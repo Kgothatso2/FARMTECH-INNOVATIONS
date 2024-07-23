@@ -2,7 +2,7 @@ const Field = require('../models/Field');
 
 /**
  * @description Add a field log to a field
- * @route POST /api/v1/fields/:fieldId/fieldlogs
+ * @route POST /api/v1/fields/:fieldId/add_log
  * @access private
  */
 const addFieldLog = async (req, res) => {

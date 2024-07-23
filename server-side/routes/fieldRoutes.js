@@ -15,7 +15,7 @@ router.put('/update_field/:fieldId', updateField);
 router.get('/list_fields', auth, listFields);
 
 // Add a field log
-router.post('/:fieldId/fieldlogs', addFieldLog);
+router.post('/:fieldId/add_log', addFieldLog);
 
 // Delete a field log
 router.delete('/:fieldId/fieldlogs/:logId', deleteFieldLog);
