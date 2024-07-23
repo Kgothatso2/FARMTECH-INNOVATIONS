@@ -1,142 +1,152 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../styles/css/style.css";
-import "../styles/css/bootstrap.min.css";
+import React, { useState } from 'react';
+import '../styles/css/style.css';
+import '../styles/css/bootstrap.min.css';
+import '../styles/login.css';
+import Header from '../components/OnHeader';
+import { Link, useNavigate } from 'react-router-dom';
 
-const RegisterUser = () => {
-    return (
-      <html>
-        <head>
-          <meta charset="utf-8"></meta>
-          <title>FarmTech Innovations</title>
-          <meta
-            content="width=device-width, initial-scale=1.0"
-            name="viewport"
-          ></meta>
-          <meta content="Free HTML Templates" name="keywords"></meta>
-          <meta content="Free HTML Templates" name="description"></meta>
+function Register () {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
-          <link href="img/favicon.ico" rel="icon"></link>
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin
-          ></link>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
-            rel="stylesheet"
-          ></link>
+  const validateForm = () => {
+    const newErrors = {};
 
-          <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-            rel="stylesheet"
-          ></link>
-          <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-            rel="stylesheet"
-          ></link>
+    if (!formData.name) {
+      newErrors.name = 'Full Name is required';
+    }
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+    }
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
+    } else if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters';
+    }
+    if (!formData.confirmPassword) {
+      newErrors.confirmPassword = 'Confirm Password is required';
+    } else if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+    }
 
-          <link
-            href="lib/owlcarousel/assets/owl.carousel.min.css"
-            rel="stylesheet"
-          ></link>
+    return newErrors;
+  };
 
-          <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
 
-          <link href="css/style.css" rel="stylesheet"></link>
-        </head>
-        <body>
-          <div>
-          <nav class="navbar navbar-expand-lg">
-            <a href="index.html" class="navbar-brand p-0">
-              <h1 class="m-0">FarmTech Innovations
-              </h1>
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarCollapse"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <div class="navbar-nav ms-auto py-0 me-n3">
-                <Link to={"/"}>
-                  <a class="nav-item">Home</a>
-                </Link>
-                <a href="#about" class="nav-item">
-                  About
-                </a>
-                <a href="#offers" class="nav-item">
-                  Offers
-                </a>
-                <a href="#us" class="nav-item">
-                  Why Us?
-                </a>
-                <Link to={"/login"}>
-                  <a class="nav-item">Login</a>
-                </Link>
-              </div>
+    try {
+      const response = await fetch('http://localhost:3010/api/v1/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: formData.name,
+          email: formData.email,
+          password: formData.password
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // alert('Registration successful');
+        navigate('/login');
+      } else {
+        setErrors({ apiError: data.message });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrors({ apiError: 'An error occurred. Please try again.' });
+    }
+  };
+
+  return (
+    <div className='bdy'>
+      <Header />
+      <section class='form-section-r'>
+        <div className='form-imgr' />
+        <div className='reg-form'>
+          <h1>Register</h1>
+          <p>Create Your Account!</p>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                required
+                placeholder='Create your username (ex. john_doe)'
+                value={formData.name}
+                onChange={handleChange}
+              />
+              {errors.name && <div className='error'>{errors.name}</div>}
             </div>
-          </nav>
-            <div class="login-container">
-              <h2>Register</h2>
-              <form action="login.php" method="POST">
-                <div class="input-group">
-                  <label for="firstname">Firstname</label>
-                  <input
-                    type="text"
-                    id="firstname"
-                    name="firstname"
-                    required
-                  ></input>
-                </div>
-                <div class="input-group">
-                  <label for="lastname">Lastname</label>
-                  <input
-                    type="text"
-                    id="lastname"
-                    name="lastname"
-                    required
-                  ></input>
-                </div>
-                <div class="input-group">
-                  <label for="email">Email</label>
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    required
-                  ></input>
-                </div>
-                <div class="input-group">
-                  <label for="username">Username</label>
-                  <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    required
-                  ></input>
-                </div>
-                <div class="input-group">
-                  <label for="password">Password</label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                  ></input>
-                </div>
-                <button type="submit">Register</button>
-              </form>
+            <div>
+              <input
+                type='email'
+                id='email'
+                name='email'
+                required
+                placeholder='Your Email (ex. yourname@example.com)'
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && <div className='error'>{errors.email}</div>}
             </div>
-          </div>
-        </body>
-      </html>
-    );
+            <div>
+              <input
+                type='password'
+                id='password'
+                name='password'
+                required
+                placeholder='Password'
+                value={formData.password}
+                onChange={handleChange}
+              />
+              {errors.password && <div className='error'>{errors.password}</div>}
+            </div>
+            <div>
+              <input
+                type='password'
+                id='confirm-password'
+                name='confirmPassword'
+                required
+                placeholder='Confirm Password'
+                value={formData.confirmPassword}
+                onChange={handleChange}
+              />
+              {errors.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
+            </div>
+            {errors.apiError && <div className='error'>{errors.apiError}</div>}
+            <button>Sign Up</button>
+            <p>Already a User? Login <Link to='/login'>Here</Link></p>
+          </form>
+        </div>
+      </section>
+    </div>
+  );
 }
 
-export default RegisterUser
+export default Register;

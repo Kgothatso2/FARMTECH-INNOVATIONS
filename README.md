@@ -1,6 +1,6 @@
-# [FARMTECH] - Farm Tech Innovation Software Tool
+# FARMTECH - Farm Tech Innovation Software Tool
 
-Welcome to the [Tool Name] project! This software tool is designed to assist small-scale farmers with vital information to help them achieve optimal productivity and yield during harvest seasons. Below, you'll find everything you need to get started with the project, including an overview, setup instructions, and more.
+Welcome to the FARMTECH project! This software tool is designed to assist small-scale farmers with vital information to help them achieve optimal productivity and yield during harvest seasons. Below, you'll find everything you need to get started with the project, including an overview, setup instructions, and more.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Welcome to the [Tool Name] project! This software tool is designed to assist sma
 
 ## Project Overview
 
-[Tool Name] is an agriculture-enhancing software tool tailored specifically for small-scale commercial farmers. Our goal is to provide farmers with critical information, enabling them to make informed decisions and achieve optimal yields. The software leverages cutting-edge technology to deliver real-time insights and data directly to the farmers.
+FARMTECH is an agriculture-enhancing software tool tailored specifically for small-scale commercial farmers. Our goal is to provide farmers with critical information, enabling them to make informed decisions and achieve optimal yields. The software leverages cutting-edge technology to deliver real-time insights and data directly to the farmers.
 
 ## Technologies Used
 - **Frontend:** React
@@ -65,7 +65,7 @@ Once the development server is up and running, you can access the application at
 
 ## Contributing
 
-We welcome contributions to enhance [Tool Name]. To contribute:
+We welcome contributions to enhance FARMTECH. To contribute:
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
@@ -79,6 +79,11 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Team
 
+- [Kgothatso Mogale](https://github.com/Kgothatso2)
+- [Destiny Matuse](#)
+- [Kwame Abbey](https://github.com/Kwame-Abbey)
+- [John-Livingproof Fowowe](https://github.com/johnlivingprooff)
+
 ---
 
-Thank you for your interest in [Tool Name]. We are excited about the positive impact this tool will have on the farming community and look forward to your contributions and feedback!
+Thank you for your interest in FARMTECH. We are excited about the positive impact this tool will have on the farming community and look forward to your contributions and feedback!
