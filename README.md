@@ -53,6 +53,8 @@ FARMTECH is an agriculture-enhancing software tool tailored specifically for sma
     ```plaintext
     MONGODB_URI=your-mongodb-uri
     PORT=your-port
+    JWT_SECRET=your-secret
+    WEATHERAPIKEY=your-open-weather-api-key
     ```
 
 4. **Start the Development Server:**
