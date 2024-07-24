@@ -1,11 +1,14 @@
 import React from 'react';
 import '../styles/Header.css';
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
-        <header class="top">
-            <h1>FARMTECH</h1>
-        </header>
+      <header class="top">
+        <Link to={"/"}>
+          <h1>FARMTECH INNOVATIONS</h1>
+        </Link>
+      </header>
     );
 }
 
