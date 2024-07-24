@@ -25,6 +25,19 @@ const authenticateUser = async (req, res) => {
 };
 
 /**
+ * description - check user auth
+ * route - GET /api/v1/users/check-auth
+ * access - private
+ */
+const checkAuth = (req, res) => {
+  if (req.user) {
+      res.status(200).json({ isAuthenticated: true });
+  } else {
+      res.status(401).json({ isAuthenticated: false });
+  }
+};
+
+/**
  * description - Register a new user
  * route - POST /api/v1/users/
  * access - public
@@ -65,4 +78,5 @@ module.exports = {
   authenticateUser,
   registerUser,
   logoutUser,
+  checkAuth,
 };
