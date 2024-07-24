@@ -52,7 +52,7 @@ const registerUser = async (req, res) => {
 
 /**
  * description -Logout a user
- * route - POST /api/v1/users/logout
+ * route - GET /api/v1/users/logout
  * access - public
  */
 

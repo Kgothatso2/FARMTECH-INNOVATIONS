@@ -340,3 +340,9 @@ color: rgb(205, 205, 83);
 .supply-high {
     color: #629d55;
 }
+
+#g-insight {
+    padding: 5px;
+    margin-top: 0;
+    width: 150px;
+}

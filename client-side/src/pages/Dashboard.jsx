@@ -370,7 +370,7 @@ function Dashboard() {
                                 ) : (
                                     <>
                                         <p>No market insights available</p>
-                                        <button onClick={handleGetInsights}>Get Insights</button>
+                                        <button id='g-insight' onClick={handleGetInsights}>Get Insights</button>
                                     </>
                                 )
                             ) : (
