@@ -71,7 +71,7 @@ function Register () {
       const data = await response.json();
 
       if (response.ok) {
-        navigate('/login');
+        navigate('/dashboard');
       } else {
         setErrors({ apiError: data.message });
       }
