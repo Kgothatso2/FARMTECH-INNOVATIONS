@@ -49,11 +49,11 @@ function Dashboard() {
         fetchFields();
     }, []);
 
-    useEffect(() => {
-        if (selectedField) {
-            getWeatherData(selectedField.fieldLocation);
-        }
-    }, [selectedField]);
+    //useEffect(() => {
+    //    if (selectedField) {
+    //        getWeatherData(selectedField.fieldLocation);
+    //    }
+    //}, [selectedField]);
 
     const fetchFields = async () => {
         try {
@@ -99,7 +99,7 @@ function Dashboard() {
     };
 
     const handleAddField = async (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         try {
             const response = await fetch('/api/v1/fields/add_field', {
                 method: 'POST',

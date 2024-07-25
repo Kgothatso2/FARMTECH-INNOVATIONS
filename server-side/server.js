@@ -15,7 +15,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Get port fromm environment variable
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Connecting to Database
 connectDB();
@@ -26,7 +26,7 @@ const app = express();
 // MIddlewares
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'http://localhost:3001'
 }));
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
