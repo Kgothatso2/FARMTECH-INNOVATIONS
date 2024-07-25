@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
+import Hoe from "./pages/Hoe.jsx";
 import Login from "./pages/Login.jsx";
 import RegisterUser from "./pages/RegisterUser.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/hoe" element={<Hoe />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<RegisterUser />} />
             <Route path="/dashboard" element={

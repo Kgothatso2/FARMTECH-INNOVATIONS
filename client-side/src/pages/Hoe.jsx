@@ -1,81 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/css/style.css";
 import "../styles/css/bootstrap.min.css";
 import '../styles/css/Home.css';
 import Header from "../components/Header";
 import quote from '../assets/img/quote.jpg';
+import Footer from "../components/Footer";
 
-const Home = () => {
+
+function Hoe() {
   return (
-    <html>
-      <head>
-        <meta charset="utf-8"></meta>
-        <title>FARMTECH INNOVATIONS</title>
-        <meta
-          content="width=device-width, initial-scale=1.0"
-          name="viewport"
-        ></meta>
-        <meta content="Free HTML Templates" name="keywords"></meta>
-        <meta content="Free HTML Templates" name="description"></meta>
-
-        <link href="img/favicon.ico" rel="icon"></link>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin
-        ></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
-          rel="stylesheet"
-        ></link>
-
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-          rel="stylesheet"
-        ></link>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-          rel="stylesheet"
-        ></link>
-
-        <link
-          href="lib/owlcarousel/assets/owl.carousel.min.css"
-          rel="stylesheet"
-        ></link>
-
-        <link href="css/bootstrap.min.css" rel="stylesheet"></link>
-
-        <link href="css/style.css" rel="stylesheet"></link>
-      </head>
-      <body>
-        <div>
-          <Header />  
-          <section className="hero1">
-            <div className="overlay"></div>
-            <h1>Cultivating Tomorrw's Harvest Today</h1>
-            <p>Providing Small holder farmers with valuable insights to increase productivity & yield</p>
-            <div class='q-links'>
-                <a href="#about" class="btn btn-secondary py-md-2 px-md-4 rounded-pill">Learn More</a>
-                <a href="/register" class="btn btn-primary py-md-2 px-md-4 rounded-pill">Sign Up</a>
-            </div>
-          </section>
-          <div class="container-fluid bg-secondary p-0" id="about">
+    <div>
+      <Header />
+      <section className="hero1">
+        <div className="overlay"></div>
+        <h1>Cultivating Tomorrw's Harvest Today</h1>
+        <p>Providing Small holder farmers with valuable insights to increase productivity & yield</p>
+        <div class='q-links'>
+            <a href="#about" class="btn btn-secondary py-md-2 px-md-4 rounded-pill">Learn More</a>
+            <a href="/register" class="btn btn-primary py-md-2 px-md-4 rounded-pill">Sign Up</a>
+        </div>
+      </section>
+      <section>
+        <div class="container-fluid bg-secondary p-0" id="about">
             <div class="row g-0">
               <div class="col-lg-6 py-6 px-5">
                 <h1 class="display-5 mb-4" style={{ color: "#46da92" }}>
-                  Welcome To <span style={{ color: "#46da92" }}>FarmTech</span>
+                  Creative <span style={{ color: "#4677 92" }}>Solutions</span>
                 </h1>
                 <h4 class="mb-4" style={{ color: "#46da92" }}>
-                  We a company powered and driven by innovation and making a
-                  difference!
+                  Our Vision is to empower small-holder farmers with vital information, for efficiency & data driven productivity
                 </h4>
                 <p class="mb-4">
-                  We having been in the agricultural industry since 2015. We
-                  have partned with a lot of industry leading organizations in
-                  the argricultural space.
+                  Let Us help you achieve your desired harvests!
                 </p>
                 <a
                   href="#contact"
@@ -154,8 +110,9 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-          <div class="container-fluid pt-6 px-5" id="offers">
+      </section>
+      <section>
+      <div class="container-fluid pt-6 px-5" id="offers">
             <div class="text-center mx-auto mb-5" style={{ maxWidth: "600px" }}>
               <h1 class="display-5 mb-0">What We Offer!!!</h1>
             </div>
@@ -350,8 +307,9 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-          <div class="container-fluid bg-secondary px-0" id="contact">
+      </section>
+      <section>
+      <div class="container-fluid bg-secondary px-0" id="contact">
             <div class="row g-0">
               <div class="col-lg-6 py-6 px-5">
                 <h1 class="display-10 mb-4">Inquire About Service</h1>
@@ -413,55 +371,16 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-          <div class="container-fluid  p-5">
-            <div class="row g-5">
-              <div class="col-12 text-center">
-                <h1 class="display-5 mb-4">Stay Updated!!!</h1>
-                <form class="mx-auto" style={{ maxWidth: "600px" }}>
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control border-white p-3"
-                      placeholder="Your Email"
-                    ></input>
-                    <button class="btn btn-dark px-4">Sign Up</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="container-fluid bg-dark text-secondary p-5">
-            <div class="row g-5">
-              <div class="col-lg-3 col-md-6"></div>
-            </div>
-
-            <p class="m-0">
-              &copy;{"FarmTech "}
-              <a class="text-secondary border-bottom" href="#">
-                coyright 2024
-              </a>
-              . All Rights Reserved.
-            </p>
-          </div>
-        </div>
-
-        <a
-          href="#"
-          class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
-        >
-          <i class="bi bi-arrow-up"></i>
-        </a>
-
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="js/main.js"></script>
-      </body>
-    </html>
+      </section>
+      <Footer />
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/waypoints/waypoints.min.js"></script>
+      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+      <script src="js/main.js"></script>
+    </div>
   );
-};
+}
 
-export default Home;
+export default Hoe;
