@@ -30,7 +30,7 @@ function Header() {
 
     return (
         <header className="top">
-            <h1>FARMTECH INNOVATIONS</h1>
+            <a href='/'><h1>FARMTECH INNOVATIONS</h1></a>
             <nav className="nav-links">
                 <a href="/dashboard#">Market Analysis</a>
                 <a href="/dashboard#">Fields</a>

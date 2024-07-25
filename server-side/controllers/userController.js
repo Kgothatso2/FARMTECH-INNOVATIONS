@@ -37,9 +37,6 @@ const checkAuth = (req, res) => {
   }
 };
 
-module.exports = { checkAuth };
-
-
 /**
  * description - Register a new user
  * route - POST /api/v1/users/

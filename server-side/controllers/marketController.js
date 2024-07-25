@@ -42,7 +42,7 @@ const collateMarketInsights = async (req, res) => {
         console.log(field.marketInsights);
     
         // problem here not sure what it is...
-        res.status(200).json(marketInsights);
+        res.status(200).json(field.marketInsights);
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error });
     }

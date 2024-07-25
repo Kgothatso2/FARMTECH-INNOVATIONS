@@ -346,3 +346,10 @@ color: rgb(205, 205, 83);
     margin-top: 0;
     width: 150px;
 }
+
+#n-insight {
+    padding: 5px;
+    margin-top: 15px;
+    width: 150px;
+    margin-left: -45px;
+}

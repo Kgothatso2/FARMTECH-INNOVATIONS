@@ -47,7 +47,7 @@ const addField = async (req, res) => {
 
         console.log(user.fields);
 
-        res.status(201).json({ msg: 'Field added successfully', field });
+        res.status(201).json({ msg: 'Field added successfully', user });
     } catch (error) {
         res.status(500).json({ msg: 'Server Error', error });
     }

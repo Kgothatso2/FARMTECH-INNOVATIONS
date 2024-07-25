@@ -1,39 +1,28 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        // Check if the user is authenticated
-        const checkAuth = async () => {
-            try {
-                const response = await fetch('/api/v1/users/check-auth', {
-                    method: 'GET',
-                    credentials: 'include',
-                });
-                if (response.ok) {
-                    setIsAuthenticated(true);
-                } else {
-                    setIsAuthenticated(false);
-                }
-            } catch (error) {
-                setIsAuthenticated(false);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        checkAuth();
-    }, []);
-
-    return (
-        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, loading }}>
-            {children}
-        </AuthContext.Provider>
-    );
-};
-
 export const useAuth = () => useContext(AuthContext);
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await axios.get('/api/v1/users/check-auth');
+        setUser(response.data.user);
+      } catch (error) {
+        setUser(null);
+      }
+    };
+    checkAuth();
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};

@@ -20,7 +20,7 @@ function Dashboard() {
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
     const [fields, setFields] = useState([]);
     const [selectedField, setSelectedField] = useState(null);
-    const [setMarketInsights] = useState(null);
+    const [marketInsights, setMarketInsights] = useState(null);
     const [errors, setErrors] = useState({});
     const [weatherData, setWeatherData] = useState(null);
     const [showFieldForm, setShowFieldForm] = useState(false);
@@ -109,7 +109,6 @@ function Dashboard() {
                 },
                 body: JSON.stringify(newField)
             });
-            console.log('response:', response.status);
             if (response.ok) {
                 fetchFields();
                 setNewField({
@@ -157,7 +156,7 @@ function Dashboard() {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
             });
-
+            
             const data = await response.json();
 
             if (response.ok) {
@@ -365,8 +364,9 @@ function Dashboard() {
                                         <p>Current Price: ${selectedField.marketInsights.currentPrice}/kg</p>
                                         <p>Price Trend: {selectedField.marketInsights.priceTrend}</p>
                                         <span><p className={getDemandClass(selectedField.marketInsights.demand)}>Demand: {selectedField.marketInsights.demand}</p>
-                                        <p className={getSupplyClass(selectedField.marketInsights.supply)}>Supply: {selectedField.marketInsights.supply}</p></span>
-                                    </div>
+                                        <p className={getSupplyClass(selectedField.marketInsights.supply)}>Supply: {selectedField.marketInsights.supply}</p></span><br />
+                                        <button id='n-insight' onClick={handleGetInsights}>New Insights</button>
+                                        </div>
                                 ) : (
                                     <>
                                         <p>No market insights available</p>
